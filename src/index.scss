@@ -10,6 +10,7 @@
 
 
 .todo {
+  display: flex;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -28,7 +29,13 @@
     border-right: 1px solid #F1F1F1;
     padding: 60px 20px;
   }
+  &__tasks {
+    flex: 1;
+    padding: 60px;
+  }
 }
+
+
 
 .button {
   background: #4DD599;

@@ -8,16 +8,32 @@ import closeSvg from "../../assets/img/close.svg";
 
 
 
-const AddList = ({colors}) => {
-    const [visiblePopup , setvisiblePopup] = React.useState(false);
+const AddList = ({colors, onAdd}) => {
+    const [visiblePopup , setVisiblePopup] = React.useState(false);
     const [selectedColor , selectColor] = React.useState(colors[0].id);
+    const [inputValue , setInputValue] = React.useState('');
 
-    console.log(selectedColor)
+    const onClose = () =>{
+        setVisiblePopup(false);
+        setInputValue('');
+        selectColor(colors[0].id);
+    }
+
+    const addList = () => {
+        if (!inputValue){
+            alert('!!!!!!!!!!!!!')
+            return
+        }
+        const color = colors.filter(c => c.id === selectedColor)[0].name
+       onAdd( {"id": Math.random(), "name": inputValue, "color": color});
+        onClose();
+
+    }
 
     return(
         <div className='add-list'>
             <List
-                onClick={()=>setvisiblePopup(true)}
+                onClick={()=>setVisiblePopup(true)}
                 items={[
                     {
                         className: "list__add-button",
@@ -31,8 +47,14 @@ const AddList = ({colors}) => {
                 ]}
             />
             {visiblePopup && (<div className="add-list__popup">
-                <img onClick={()=>setvisiblePopup(false)} src={closeSvg} alt="Close button" className="add-list__popup-close-btn"></img>
-               <input className="field" type="text" placeholder="Назва списку" />
+                <img onClick={onClose} src={closeSvg} alt="Close button" className="add-list__popup-close-btn"></img>
+               <input
+                   value={inputValue}
+                   onChange={e => {setInputValue(e.target.value)}}
+                   className="field"
+                   type="text"
+                   placeholder="Назва списку" />
+
                 <div className="add-list__popup-colors">
                    {colors.map(color =>(
                        <Badge
@@ -42,7 +64,7 @@ const AddList = ({colors}) => {
                        className={selectedColor===color.id && 'active'}
                    />))}
                 </div>
-               <button className="button">Додати список</button>
+               <button className="button" onClick={addList}>Додати список</button>
             </div>)}
         </div>
 
