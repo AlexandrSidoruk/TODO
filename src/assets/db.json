@@ -21,8 +21,8 @@
       "colorId": 2
     },
     {
-      "name": "aaa222222",
-      "colorId": 2,
+      "name": "111",
+      "colorId": 1,
       "id": 5
     }
   ],
@@ -34,28 +34,10 @@
       "completed": true
     },
     {
-      "id": 2,
-      "listId": 2,
-      "text": "Вивчити патерни проектування",
-      "completed": false
-    },
-    {
       "id": 3,
       "listId": 2,
       "text": "ReactJS Hooks (useState, useReducer, useEffect ...)",
       "completed": true
-    },
-    {
-      "id": 4,
-      "listId": 2,
-      "text": "Redux (redux-observable, redux-saga)",
-      "completed": false
-    },
-    {
-      "listId": 2,
-      "text": "123",
-      "completed": true,
-      "id": 5
     },
     {
       "listId": 4,
@@ -64,22 +46,40 @@
       "id": 10
     },
     {
-      "listId": 2,
-      "text": "222",
-      "completed": true,
-      "id": 12
-    },
-    {
-      "listId": 5,
-      "text": "121212",
+      "listId": 1,
+      "text": "xx",
       "completed": false,
-      "id": 13
+      "id": 15
     },
     {
-      "listId": 5,
+      "listId": 1,
       "text": "",
       "completed": false,
-      "id": 14
+      "id": 16
+    },
+    {
+      "listId": 2,
+      "text": "3123132",
+      "completed": false,
+      "id": 19
+    },
+    {
+      "listId": 2,
+      "text": "1212",
+      "completed": false,
+      "id": 20
+    },
+    {
+      "listId": 5,
+      "text": "222",
+      "completed": false,
+      "id": 21
+    },
+    {
+      "listId": 5,
+      "text": "333",
+      "completed": false,
+      "id": 22
     }
   ],
   "colors": [
