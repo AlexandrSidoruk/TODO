@@ -19,11 +19,6 @@
       "id": 4,
       "name": "Книжки",
       "colorId": 2
-    },
-    {
-      "name": "111",
-      "colorId": 1,
-      "id": 5
     }
   ],
   "tasks": [
@@ -52,12 +47,6 @@
       "id": 15
     },
     {
-      "listId": 1,
-      "text": "",
-      "completed": false,
-      "id": 16
-    },
-    {
       "listId": 2,
       "text": "3123132",
       "completed": false,
@@ -70,16 +59,10 @@
       "id": 20
     },
     {
-      "listId": 5,
-      "text": "222",
+      "listId": 1,
+      "text": "123",
       "completed": false,
       "id": 21
-    },
-    {
-      "listId": 5,
-      "text": "333",
-      "completed": false,
-      "id": 22
     }
   ],
   "colors": [

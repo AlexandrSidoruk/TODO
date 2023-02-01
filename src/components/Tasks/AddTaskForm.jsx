@@ -3,7 +3,6 @@ import addSvg from "../../assets/img/add.svg";
 import axios from "axios";
 
 
-
 const AddTaskForm = ({list, onAddTask}) => {
     const [visibleForm, setFormVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -15,23 +14,23 @@ const AddTaskForm = ({list, onAddTask}) => {
     };
 
     const addTask = () => {
-       const  obj = {
-           "listId": list.id,
-           "text": inputValue,
-           "completed": false
-       }
+        const obj = {
+            "listId": list.id,
+            "text": inputValue,
+            "completed": false
+        };
         setIsLoading(true);
-       axios.post('http://localhost:3001/tasks', obj).then(({data})=>{
-           onAddTask(list.id,  obj);
-           toggleFormVisible();
-       }).catch( () => {
-           alert("ПОмилка при додаванні задачі")
-       } )
-           .finally(()=>{
-           setIsLoading(false)
-       })
+        axios.post('http://localhost:3001/tasks', obj).then(({data}) => {
+            onAddTask(list.id, data);
+            toggleFormVisible();
+        }).catch(e => {
+            alert("Помилка при додаванні задачі");
+        })
+            .finally(() => {
+                setIsLoading(false)
+            });
 
-    }
+    };
 
     return (
         <div className="tasks__form">
@@ -40,23 +39,20 @@ const AddTaskForm = ({list, onAddTask}) => {
                     (<div onClick={toggleFormVisible} className="tasks__form-new">
                         <img src={addSvg} alt="add icon"/>
                         <span>Нова задача</span>
-                    </div>) : (
-
-                        <div className="tasks__form-block">
+                    </div>) : (<div className="tasks__form-block">
                             <input
                                 value={inputValue}
                                 className="field"
                                 type="text"
                                 placeholder="Назва задачі"
-                                onChange={e=>setInputValue(e.target.value)}
+                                onChange={e => setInputValue(e.target.value)}
                             />
-                            <button disabled={isLoading} onClick={addTask} className="button" >{isLoading?"Додавання...":"Додати задачу"}</button>
+                            <button disabled={isLoading} onClick={addTask}
+                                    className="button">{isLoading ? "Додавання..." : "Додати задачу"}</button>
                             <button onClick={toggleFormVisible} className="button button--gray">Відміна</button>
 
                         </div>
-                    )
-
-            }
+                    )}
 
         </div>
     )
