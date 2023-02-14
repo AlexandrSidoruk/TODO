@@ -77,6 +77,30 @@ function App() {
         }
     }
 
+    const onCompleteTask = (listId, taskId, completed) => {
+
+        const newList = lists.map(list => {
+            if (list.id === listId) {
+                list.tasks = list.tasks.map(task => {
+                    if (task.id === taskId) {
+                        task.competed = completed;
+                    }
+                    return task;
+                });
+            }
+            return list;
+        });
+        setLists(newList);
+        axios.patch('http://localhost:3001/tasks/' + taskId, {
+            completed
+
+        })
+            .catch(() => {
+                alert("Не вдалось змінити задачу")
+            });
+        console.log(completed)
+    }
+
     const onEditListTitle = (id, title) => {
         const newList = lists.map(item => {
             if (item.id === id) {
@@ -87,10 +111,11 @@ function App() {
         setLists(newList);
     };
 
+
     useEffect(() => {
-        const listId = location.pathname.split("lists/")[1]
+        const listId = location.pathname.split('lists/')[1];
         if (lists) {
-            const list = lists.find(list => list.id === Number(listId))
+            const list = lists.find(list => list.id === Number(listId));
             setActiveItem(list)
         }
     }, [lists, location.pathname]);
@@ -99,12 +124,12 @@ function App() {
         <div className="todo">
             <div className="todo__sidebar">
                 <List
-                    onClickItem={list => {
-                        navigate('/')
+                    onClickItem={() => {
+                        navigate("/")
                     }}
                     items={
                         [{
-                            active: !activeItem,
+
                             icon: (<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -136,7 +161,7 @@ function App() {
             </div>
 
             <div className="todo__tasks">
-                <Routes> <Route path="/"
+                <Routes> <Route exact path="/"
                                 element={lists && lists.map(list =>
                                     (<Tasks key={list.id}
                                             list={list}
@@ -144,23 +169,26 @@ function App() {
                                             onEditTitle={onEditListTitle}
                                             onRemoveTask={onRemoveTask}
                                             onEditTask={onEditTask}
+                                            onCompleteTask={onCompleteTask}
                                             withoutEmpty
                                     />))}
-                                exact/>
+                />
+                    <Route exact path="/lists/:id"
+                           element={lists && activeItem &&
+                           <Tasks list={activeItem}
+                                  onAddTask={onAddTask}
+                                  onEditTitle={onEditListTitle}
+                                  onRemoveTask={onRemoveTask}
+                                  onEditTask={onEditTask}
+                                  onCompleteTask={onCompleteTask}
+
+                           />
+                           }
+                    />
+
                 </Routes>
 
-                <Routes>
-                    <Route path="/lists/:id"
-                           element={lists && activeItem &&
-                           (<Tasks list={activeItem}
-                                   onAddTask={onAddTask}
-                                   onEditTitle={onEditListTitle}
-                                   onRemoveTask={onRemoveTask}
-                                   onEditTask={onEditTask}
-                           />)
-                           }
-                           exact/>
-                </Routes>
+
             </div>
         </div>
     );

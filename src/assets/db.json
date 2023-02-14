@@ -12,7 +12,7 @@
     },
     {
       "id": 3,
-      "name": "Фільми и серіали",
+      "name": "Фільми і серіали",
       "colorId": 3
     },
     {
@@ -26,43 +26,19 @@
       "id": 1,
       "listId": 2,
       "text": "Вивчити JavaScript",
-      "completed": true
+      "completed": false
     },
     {
       "id": 3,
       "listId": 2,
       "text": "ReactJS Hooks (useState, useReducer, useEffect ...)",
-      "completed": true
+      "completed": false
     },
     {
       "listId": 4,
       "text": "Купити 1984!",
       "completed": true,
       "id": 10
-    },
-    {
-      "listId": 1,
-      "text": "xx",
-      "completed": false,
-      "id": 15
-    },
-    {
-      "listId": 2,
-      "text": "3123132",
-      "completed": false,
-      "id": 19
-    },
-    {
-      "listId": 2,
-      "text": "1212",
-      "completed": false,
-      "id": 20
-    },
-    {
-      "listId": 1,
-      "text": "123",
-      "completed": false,
-      "id": 21
     }
   ],
   "colors": [

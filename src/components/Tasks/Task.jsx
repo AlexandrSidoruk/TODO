@@ -1,10 +1,16 @@
 import React from "react";
 
-const Task = ({id, text, list, onRemove, onEdit}) => {
+const Task = ({id, text, completed, list, onRemove, onEdit, onComplete}) => {
+
+    const onChangeCheckbox =  ({ target: { checked } }) => {
+        onComplete(list.id, id, checked)
+
+    }
+
     return(
         <div  className="tasks__items-row">
             <div className="checkbox">
-                <input id={`task-${id}`} type="checkbox" />
+                <input onChange={onChangeCheckbox} id={`task-${id}`} type="checkbox" checked={completed}  />
                 <label htmlFor={`task-${id}`}>
                     <svg
                         width="11"

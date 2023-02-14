@@ -6,6 +6,8 @@ import removeSvg from "../../assets/img/remove.svg";
 import axios from "axios";
 
 
+
+
 const List = ({items, isRemovable, onClick, onRemove, onClickItem, activeItem}) => {
     const RemoveList = item => {
         if (window.confirm('Ви дійсно хочите видалити список? ')) {
