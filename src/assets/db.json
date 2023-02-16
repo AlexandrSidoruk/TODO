@@ -39,6 +39,12 @@
       "text": "Купити 1984!",
       "completed": true,
       "id": 10
+    },
+    {
+      "listId": 3,
+      "text": "Краще звоніть Соллу",
+      "completed": true,
+      "id": 11
     }
   ],
   "colors": [
