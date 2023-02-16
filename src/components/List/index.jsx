@@ -11,7 +11,7 @@ import axios from "axios";
 const List = ({items, isRemovable, onClick, onRemove, onClickItem, activeItem}) => {
     const RemoveList = item => {
         if (window.confirm('Ви дійсно хочите видалити список? ')) {
-            axios.delete('http://localhost:3001/lists/' + item.id).then(() => {
+            axios.delete('/lists/' + item.id).then(() => {
                 onRemove(item.id);
             });
         }
