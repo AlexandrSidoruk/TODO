@@ -26,7 +26,7 @@
       "id": 1,
       "listId": 2,
       "text": "Вивчити JavaScript",
-      "completed": false
+      "completed": true
     },
     {
       "id": 3,
@@ -45,6 +45,12 @@
       "text": "Краще звоніть Соллу",
       "completed": true,
       "id": 11
+    },
+    {
+      "listId": 1,
+      "text": "1",
+      "completed": false,
+      "id": 12
     }
   ],
   "colors": [
